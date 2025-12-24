@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylep.css">
+</head>
+
+<body>
+    <section>
+        <h2>Número Aleatorio</h2>
+    </section>
+
+    <button class="boton1">
+        Jugar Ahora
+    </button>
+
+    <script>
+        const iniciarJuego = function() {
+            const numeroSecreto = Math.floor(Math.random() * 10) + 1;
+            console.log("Número secreto");
+            console.log("Comienza el juego"); 
+
+            let intentos = 0;
+            const maxIntentos = 3;
+            let adivinado = false;
+            
+            alert("Empieza el juego, tienes 3 intentos para adivinar el número entre 1 y 10.");
+            
+            while (intentos < maxIntentos && !adivinado) {
+                let entrada = prompt("¿Cuál es el número?");
+                let numeroUsuario = Number(entrada);
+                
+
+                intentos=intentos + 1;
+
+                if (numeroUsuario == numeroSecreto) {
+                    alert("GANASTE");
+                    console.log("Resultado: Victoria");
+                    adivinado = true;
+                } else if (numeroUsuario > numeroSecreto) {
+                    alert("Intenta uno más bajo.");
+                } else {
+                    alert("Intenta uno más alto.");
+                }
+            } 
+
+            if (!adivinado) {
+                alert("PERDISTE");
+                console.log("Resultado: Derrota");
+            }
+        };
+
+        document.querySelector('.boton1').addEventListener('click', iniciarJuego);
+    </script>
+</body>
+
+</body>
+</html>
